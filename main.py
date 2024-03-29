@@ -16,7 +16,7 @@ def get_response(message):
     return 'Maaf, saya tidak dapat memahami pertanyaan Anda.'
 
 # Inisialisasi bot
-bot_token = 'TOKEN_BOT_TELEGRAM_ANDA'
+bot_token = '7146022048:AAFICwF67YtFwgWprOcABj9fDYhxpGQ3yU0'
 bot = telegram.Bot(token=bot_token)
 
 # Inisialisasi updater dan dispatcher
