@@ -1,6 +1,17 @@
 import telegram
 from telegram import ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+# Fungsi untuk menangani pesan "/start"
+def start_command(update, context):
+    keyboard = [
+        [KeyboardButton('/start')],
+        [KeyboardButton('Halo')],
+        [KeyboardButton('1'), KeyboardButton('2')],
+        [KeyboardButton('3'), KeyboardButton('4')]
+    ]
+    reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Halo! Pilih salah satu opsi berikut:', reply_markup=reply_markup)
 
 # Fungsi untuk menangani pesan yang diterima
 def handle_message(update, context):
@@ -10,9 +21,7 @@ def handle_message(update, context):
 
 # Fungsi untuk mendapatkan jawaban dari pertanyaan atau opsi button
 def get_response(message):
-    if message == '/start':
-        return 'Halo! Pilih salah satu opsi berikut:'
-    elif message == 'Halo':
+    if message == 'Halo':
         return 'Apa kabar?'
     elif message == '1':
         return 'Anda memilih opsi 1'
@@ -33,19 +42,14 @@ bot = telegram.Bot(token=bot_token)
 updater = Updater(bot_token, use_context=True)
 dispatcher = updater.dispatcher
 
+# Menambahkan handler untuk perintah "/start"
+start_handler = CommandHandler('start', start_command)
+dispatcher.add_handler(start_handler)
+
 # Menambahkan handler untuk menangani pesan yang diterima
-handler = MessageHandler(Filters.text & (~Filters.command), handle_message)
-dispatcher.add_handler(handler)
+message_handler = MessageHandler(Filters.text & (~Filters.command), handle_message)
+dispatcher.add_handler(message_handler)
 
-# Menambahkan opsi button
-keyboard = [
-    [KeyboardButton('Halo')],
-    [KeyboardButton('1'), KeyboardButton('2')],
-    [KeyboardButton('3'), KeyboardButton('4')]
-]
-reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-
-# Memulai bot dan mengirim pesan pertama dengan opsi button
+# Memulai bot
 updater.start_polling()
-bot.send_message(chat_id=576495165, text='Halo! Pilih salah satu opsi berikut:', reply_markup=reply_markup)
 updater.idle()
