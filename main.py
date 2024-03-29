@@ -10,13 +10,16 @@ def handle_message(update, context):
 # Fungsi untuk mendapatkan jawaban dari pertanyaan
 def get_response(message):
     if message == 'Halo':
-        return 'Apa kabar?'
-
-    # Jika pertanyaan tidak ada dalam daftar jawaban yang telah diatur sebelumnya, dapat dikembalikan pesan default
-    return 'Maaf, saya tidak dapat memahami pertanyaan Anda.'
+        return 'Apa kabar? [Button1](button1)'
+    elif message == 'Button1':
+        return 'Saya baik. Bagaimana denganmu? [Button2](button2)'
+    elif message == 'Button2':
+        return 'Saya juga baik. Ada yang bisa saya bantu?'
+    else:
+        return 'Maaf, saya tidak dapat memahami pertanyaan Anda.'
 
 # Inisialisasi bot
-bot_token = '7146022048:AAFICwF67YtFwgWprOcABj9fDYhxpGQ3yU0'
+bot_token = '7090457834:AAGOVODwtJrA0II6-B8tfUGrSwJAdnbl1QY'
 bot = telegram.Bot(token=bot_token)
 
 # Inisialisasi updater dan dispatcher
