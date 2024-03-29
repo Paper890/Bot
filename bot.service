@@ -1,0 +1,12 @@
+[Unit]
+Description=BotYou
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /path/to/main.py
+WorkingDirectory=/path/to/bot/directory
+Restart=always
+User=San
+
+[Install]
+WantedBy=multi-user.target
