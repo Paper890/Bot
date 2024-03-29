@@ -26,7 +26,7 @@ def get_response(message):
         return 'Maaf, saya tidak dapat memahami pertanyaan atau opsi Anda.'
 
 # Inisialisasi bot
-bot_token = 'TOKEN_BOT_TELEGRAM_ANDA'
+bot_token = '7090457834:AAGOVODwtJrA0II6-B8tfUGrSwJAdnbl1QY'
 bot = telegram.Bot(token=bot_token)
 
 # Inisialisasi updater dan dispatcher
@@ -47,5 +47,5 @@ reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
 # Memulai bot dan mengirim pesan pertama dengan opsi button
 updater.start_polling()
-bot.send_message(chat_id=CHAT_ID_ANDA, text='Halo! Pilih salah satu opsi berikut:', reply_markup=reply_markup)
+bot.send_message(chat_id=576495165, text='Halo! Pilih salah satu opsi berikut:', reply_markup=reply_markup)
 updater.idle()
