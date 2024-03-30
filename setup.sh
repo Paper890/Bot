@@ -21,6 +21,8 @@ cd san/bot
 
 #Ambil file bot dan instal
 git clone https://github.com/Paper890/Bot.git
+
+cd san/bot/Bot
 pip install -r requirements.txt
 
 cd
