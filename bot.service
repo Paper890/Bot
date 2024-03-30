@@ -3,8 +3,8 @@ Description=BotYou
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /san/bot/main.py
-WorkingDirectory=/san/bot/
+ExecStart=/usr/bin/python3 /san/bot/Bot/main.py
+WorkingDirectory=/san/bot/Bot
 Restart=always
 User=San
 
