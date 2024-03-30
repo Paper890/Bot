@@ -16,7 +16,10 @@ echo -e "
 ░╚═══██╗██╔══██║██║╚████║░░░██╔══██╗██║░░██║░░░██║░░░
 ██████╔╝██║░░██║██║░╚███║██╗██████╦╝╚█████╔╝░░░██║░░░
 ╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░"
-sleep 3
+echo -e""
+read -p "Enter your bot token: " BOT_TOKEN
+
+export BOT_TOKEN=$BOT_TOKEN
 
 echo -e "${green}UPDATE PACKAGE VPS${NC}"
 sleep 2
