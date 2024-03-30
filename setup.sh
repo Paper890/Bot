@@ -1,10 +1,10 @@
 #!/bin/bash
-
+clear
 echo -e " ╔═╗┌─┐┌┐┌╔╗ ┌─┐┌┬┐"
 echo -e " ╚═╗├─┤│││╠╩╗│ │ │ "
 echo -e " ╚═╝┴ ┴┘└┘╚═╝└─┘ ┴ "
 echo -e "------Bot By san------"
-sleep 2
+sleep 3
 
 clear
 #sudo apt update -y
@@ -22,6 +22,7 @@ cd san/bot
 #Ambil file bot dan instal
 git clone https://github.com/Paper890/Bot.git
 
+cd
 cd san/bot/Bot
 pip install -r requirements.txt
 
