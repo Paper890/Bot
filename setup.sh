@@ -26,4 +26,4 @@ pip install -r requirements.txt
 cd
 # run on boot
 cd /etc/systemd/system/
-wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service
+wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service && chmod
