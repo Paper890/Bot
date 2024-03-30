@@ -23,3 +23,7 @@ cd san/bot
 git clone https://github.com/Paper890/Bot.git
 pip install -r requirements.txt
 
+cd
+# run on boot
+cd /etc/systemd/system/
+wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service
