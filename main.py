@@ -1,35 +1,19 @@
 import telegram
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler
-# Fungsi untuk membaca daftar pengguna yang diizinkan dari file
-def read_authorized_users(file_path):
-    with open(file_path, 'r') as file:
-        authorized_users = [line.strip() for line in file.readlines()]
-    return authorized_users
-
 # Fungsi untuk mendaftarkan Token
 def main():
     bot_token = os.environ.get('BOT_TOKEN')
     if bot_token is None:
         print("Error: Bot token is not set.")
         return
-    # Membaca daftar pengguna yang diizinkan dari file
-    authorized_users = read_authorized_users('authorized_users.txt')
-
-    # Memulai bot dengan daftar pengguna yang diizinkan
-    start_bot(bot_token, authorized_users)
-
+        
 # Fungsi untuk membaca jawaban dari file .txt
 def read_answer_from_file(file_path):
     with open(file_path, 'r') as file:
         answer = file.read()
     return answer
-# Fungsi untuk menangani pesan yang diterima oleh bot
-def handle_message(update, context):
-    username = update.message.from_user.username
-    if not check_permission(username):
-        update.message.reply_text("Maaf, Anda tidak memiliki izin untuk menggunakan bot ini.")
-        return
+
 # Fungsi untuk menangani pesan yang diterima oleh bot
 def handle_message(update, context):
     message = update.message.text.lower()
