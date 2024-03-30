@@ -42,7 +42,7 @@ git clone https://github.com/Paper890/Bot.git
 cd
 cd san/bot/Bot
 pip install -r requirements.txt
-wget https://raw.githubusercontent.com/Paper890/Bot/main/authorized_users.txt
+
 #Fungsi jalankan Bot di background
 echo "[Unit]
 Description=Bot Service
@@ -54,7 +54,8 @@ ExecStart=/usr/bin/python3 main.py
 Restart=always
 [Install]
 WantedBy=multi-user.target" >> /etc/systemd/system/bot.service
-
+echo -e "${cyan} MEMULAI BOT${NC} "
 sudo systemctl daemon-reload
 sudo systemctl start bot
 sudo systemctl enable bot
+echo -e "${yellow}Success${NC}
