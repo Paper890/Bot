@@ -10,7 +10,6 @@ clear
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install python3 python3-pip
-pip3 install python-telegram-bot
 #pip3 install python-telegram-bot==12.0.0 // Install jika python3 eror
 sudo apt install git -y
 
