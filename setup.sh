@@ -25,11 +25,3 @@ git clone https://github.com/Paper890/Bot.git
 cd
 cd san/bot/Bot
 pip install -r requirements.txt
-
-cd
-# run on boot
-cd /etc/systemd/system/
-wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service
-sudo systemctl daemon-reload
-sudo systemctl enable bot.service
-sudo systemctl start bot.service
