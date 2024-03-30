@@ -42,7 +42,7 @@ git clone https://github.com/Paper890/Bot.git
 cd
 cd san/bot/Bot
 pip install -r requirements.txt
-touch authorized_users.txt
+wget https://raw.githubusercontent.com/Paper890/Bot/main/authorized_users.txt
 #Fungsi jalankan Bot di background
 echo "[Unit]
 Description=Bot Service
