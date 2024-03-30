@@ -38,7 +38,7 @@ def handle_button(update, context):
         answer = read_answer_from_file('trojan.txt')
         context.bot.send_message(chat_id=query.message.chat_id, text=answer)
 # Inisialisasi bot dan menambahkan handler untuk pesan dan tombol
-bot = telegram.Bot(token=)
+bot = telegram.Bot(token=6537024382:AAG0YN8bnoeS--1FGjPHkalS_C4gBsp6xdU)
 updater = Updater(bot=bot, use_context=True)
 updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
 updater.dispatcher.add_handler(CallbackQueryHandler(handle_button))
