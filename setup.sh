@@ -58,4 +58,4 @@ echo -e "${cyan} MEMULAI BOT${NC} "
 sudo systemctl daemon-reload
 sudo systemctl start bot
 sudo systemctl enable bot
-echo -e "${yellow}Success${NC}
+echo -e "${yellow}Success${NC}"
