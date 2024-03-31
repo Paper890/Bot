@@ -17,15 +17,6 @@ echo -e "
 ██████╔╝██║░░██║██║░╚███║██╗██████╦╝╚█████╔╝░░░██║░░░
 ╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░"
 echo -e""
-echo "Masukkan token bot:"
-read token
-
-# Menetapkan nilai variabel
-my_variable="$token"
-
-# Mengekspor variabel
-export my_variable
-
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
 clear
