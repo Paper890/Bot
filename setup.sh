@@ -24,10 +24,10 @@ echo "TOKEN=$token" > .env
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
 clear
-#sudo apt update -y
-#sudo apt upgrade -y
-#sudo apt install python3 python3-pip
-#sudo apt install git -y
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install python3 python3-pip
+sudo apt install git -y
 echo -e "${yellow} UPDATE SELESAI ${NC}"
 
 #Buat folder Bot
