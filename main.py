@@ -12,7 +12,7 @@ def read_answer_from_file(file_path):
 # Fungsi untuk menangani pesan yang diterima oleh bot
 def handle_message(update, context):
     message = update.message.text.lower()
-    if message == "/start":
+    if message == "menu":
         # Membuat keyboard inline
         keyboard = [[InlineKeyboardButton("SSH", callback_data='ssh'),
                      InlineKeyboardButton("VMESS", callback_data='vmess'),
