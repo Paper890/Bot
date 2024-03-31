@@ -51,7 +51,7 @@ pip install -r requirements.txt
 #Fungsi jalankan Bot di background
 cd
 cd /etc/systemd/system/
-
+wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service
 echo -e "${cyan} MEMULAI BOT${NC} "
 sudo systemctl daemon-reload
 sudo systemctl start bot
