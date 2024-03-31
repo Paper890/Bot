@@ -43,8 +43,3 @@ pip install -r requirements.txt
 cd
 cd /etc/systemd/system/
 wget https://raw.githubusercontent.com/Paper890/Bot/main/bot.service
-echo -e "${cyan} MEMULAI BOT${NC} "
-sudo systemctl daemon-reload
-sudo systemctl start bot
-sudo systemctl enable bot
-echo -e "${yellow}Success${NC}"
