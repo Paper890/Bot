@@ -3,6 +3,8 @@ import os
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler
 
+#Mengambil Bot Token
+my_variable = os.environ.get('my_variable')
 
 # Fungsi untuk membaca jawaban dari file .txt
 def read_answer_from_file(file_path):
@@ -41,7 +43,7 @@ def handle_button(update, context):
         context.bot.send_message(chat_id=query.message.chat_id, text=answer)
 # Inisialisasi bot dan menambahkan handler untuk pesan dan tombol
 
-bot = telegram.Bot(token='6537024382:AAG0YN8bnoeS--1FGjPHkalS_C4gBsp6xdU') 
+bot = telegram.Bot(token='my_variable') 
 updater = Updater(bot=bot, use_context=True)
 updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
 updater.dispatcher.add_handler(CallbackQueryHandler(handle_button))
