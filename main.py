@@ -13,7 +13,7 @@ def handle_message(update, context):
     message = update.message.text.lower()
     if message == "menu":
         # Membuat keyboard inline
-        keyboard = [[InlineKeyboardButton("SSH", callback_data='ssh'),
+        keyboard = [[InlineKeyboardButton("SSH", callback_data='sanvpn'),
                      InlineKeyboardButton("VMESS", callback_data='vmess'),
                      InlineKeyboardButton("VLESS", callback_data='vless'),
                      InlineKeyboardButton("TROJAN", callback_data='trojan')]]
@@ -25,8 +25,8 @@ def handle_message(update, context):
 # Fungsi untuk menangani tombol yang ditekan dalam keyboard inline
 def handle_button(update, context):
     query = update.callback_query
-    if query.data == 'ssh':
-        answer = read_answer_from_file('ssh.txt')
+    if query.data == 'sanvpn':
+        answer = read_answer_from_file('sanvpn.txt')
         context.bot.send_message(chat_id=query.message.chat_id, text=answer)
     elif query.data == 'vmess':
         answer = read_answer_from_file('vmess.txt')
