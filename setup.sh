@@ -19,7 +19,12 @@ echo -e "
 echo -e""
 echo "Masukkan token bot:"
 read token
-echo "TOKEN=$token" > .env
+
+# Menetapkan nilai variabel
+my_variable="$token"
+
+# Mengekspor variabel
+export my_variable
 
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
@@ -44,16 +49,9 @@ cd san/bot/Bot
 pip install -r requirements.txt
 
 #Fungsi jalankan Bot di background
-echo "[Unit]
-Description=Bot Service
-After=network.target
-[Service]
-User=root
-WorkingDirectory=/root/san/bot/Bot
-ExecStart=/usr/bin/python3 main.py
-Restart=always
-[Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/bot.service
+cd
+cd /etc/systemd/system/
+
 echo -e "${cyan} MEMULAI BOT${NC} "
 sudo systemctl daemon-reload
 sudo systemctl start bot
