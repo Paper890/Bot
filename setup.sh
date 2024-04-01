@@ -20,7 +20,10 @@ echo -e "
 echo -e""
 echo -e "Masukkan Bot Token :"
 read -p "" token
-
+mkdir -p san/bot
+cd san/bot
+echo "$token" > token_bot.txt
+cd
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
 clear
@@ -30,12 +33,10 @@ sudo apt install python3 python3-pip
 sudo apt install git -y
 echo -e "${yellow} UPDATE SELESAI ${NC}"
 
-#Buat folder Bot
-mkdir -p san/bot
-
 #Ke direktori Bot
+cd
 cd san/bot
-echo "$token" > token_bot.txt
+
 #Ambil file bot dan instal
 git clone https://github.com/Paper890/Bot.git
 
