@@ -9,6 +9,7 @@ cyan="\e[36m"
 NC="\e[0m"
 
 clear
+#Buat folder Bot
 echo -e "
 ░██████╗░█████╗░███╗░░██╗░░░██████╗░░█████╗░████████╗
 ██╔════╝██╔══██╗████╗░██║░░░██╔══██╗██╔══██╗╚══██╔══╝
@@ -17,6 +18,9 @@ echo -e "
 ██████╔╝██║░░██║██║░╚███║██╗██████╦╝╚█████╔╝░░░██║░░░
 ╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░"
 echo -e""
+echo -e "Masukkan Bot Token :"
+read -p "Token"token
+
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
 clear
@@ -31,7 +35,7 @@ mkdir -p san/bot
 
 #Ke direktori Bot
 cd san/bot
-
+echo "$token" > token_bot.txt
 #Ambil file bot dan instal
 git clone https://github.com/Paper890/Bot.git
 
