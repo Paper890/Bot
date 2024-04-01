@@ -19,7 +19,7 @@ echo -e "
 ╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░"
 echo -e""
 echo -e "Masukkan Bot Token :"
-read -p "Token : " token
+read -p "" token
 
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
 sleep 2
