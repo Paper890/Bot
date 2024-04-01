@@ -36,10 +36,10 @@ def menu_callback(update: Update, context: CallbackContext):
         query.edit_message_text(text=menu1_text)
     elif query.data == 'menu2':
         menu2_text = get_text_from_file("vmess.txt")
-        query.edit_message_text(text=menu4_text)
+        query.edit_message_text(text=menu2_text)
     elif query.data == 'menu3':
         menu3_text = get_text_from_file("vless.txt")
-        query.edit_message_text(text=menu2_text)
+        query.edit_message_text(text=menu3_text)
     elif query.data == 'menu4':
         menu4_text = get_text_from_file("trojan.txt")
         query.edit_message_text(text=menu4_text)
