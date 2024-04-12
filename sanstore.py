@@ -1,5 +1,5 @@
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters
 
 TOKEN = "6474341901:AAFlu-jiIXzz_4nESufZ7E1ZkkSkJTYkoNg"
 REGISTERED_IDS_FILE = "registered_ids.txt"
@@ -12,19 +12,25 @@ def read_registered_ids():
             registered_ids.append(line.strip())
     return registered_ids
 
+# Fungsi untuk menambahkan ID chat ke file teks
+def add_registered_id(id_chat):
+    with open(REGISTERED_IDS_FILE, "a") as file:
+        file.write(str(id_chat) + "\n")
+
 # Fungsi untuk menangani perintah /start
-def start(update, context):
+def start(update: Update, context: CallbackContext):
     keyboard = [
         [InlineKeyboardButton("DASBOARD", callback_data='dashboard')],
         [InlineKeyboardButton("ORDER", callback_data='order')],
         [InlineKeyboardButton("ID CHAT", callback_data='id_chat')],
-        [InlineKeyboardButton("KONTAK ADMIN", callback_data='kontak_admin')]
+        [InlineKeyboardButton("KONTAK ADMIN", callback_data='kontak_admin')],
+        [InlineKeyboardButton("Tambah Izin ID", callback_data='add_permission')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('Silakan pilih opsi di bawah ini:', reply_markup=reply_markup)
 
 # Fungsi untuk menangani callback dari tombol yang ditekan
-def button(update, context):
+def button(update: Update, context: CallbackContext):
     query = update.callback_query
     query.answer()
     if query.data == 'order':
@@ -45,6 +51,8 @@ def button(update, context):
             query.edit_message_text(text="Anda memiliki akses ke Dashboard.")
         else:
             query.edit_message_text(text="Anda tidak memiliki akses ke Dashboard.")
+    elif query.data == 'add_permission':
+        query.edit_message_text(text="Silakan kirimkan ID chat yang ingin ditambahkan melalui pesan teks.")
 
     elif query.data in ['lite', 'basic', 'xtra']:
         id_chat = query.message.chat_id
@@ -56,6 +64,12 @@ JENIS: {jenis_paket}
 
 Salin Chat ini Dan kirim ke Admin @Sanmaxx"""
         query.edit_message_text(text=message)
+
+# Fungsi untuk menangani pesan teks yang mengandung ID chat yang ingin ditambahkan
+def add_permission(update: Update, context: CallbackContext):
+    id_chat = update.message.text.strip()
+    add_registered_id(id_chat)
+    update.message.reply_text("ID chat telah ditambahkan.")
 
 def get_price(paket):
     # Fungsi untuk mendapatkan harga berdasarkan jenis paket
@@ -73,10 +87,10 @@ def main():
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CallbackQueryHandler(button))
+    updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, add_permission))
 
     updater.start_polling()
     updater.idle()
 
 if __name__ == '__main__':
     main()
-      
