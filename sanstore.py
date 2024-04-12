@@ -3,6 +3,7 @@ from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, Callback
 
 TOKEN = "6474341901:AAFlu-jiIXzz_4nESufZ7E1ZkkSkJTYkoNg"
 REGISTERED_IDS_FILE = "registered_ids.txt"
+ADMIN_CHAT_ID = 576495165  # ID chat admin yang diinginkan
 
 # Fungsi untuk membaca file teks dan mengembalikan daftar ID chat yang terdaftar
 def read_registered_ids():
@@ -19,13 +20,21 @@ def add_registered_id(id_chat):
 
 # Fungsi untuk menangani perintah /start
 def start(update: Update, context: CallbackContext):
-    keyboard = [
-        [InlineKeyboardButton("DASBOARD", callback_data='dashboard')],
-        [InlineKeyboardButton("ORDER", callback_data='order')],
-        [InlineKeyboardButton("ID CHAT", callback_data='id_chat')],
-        [InlineKeyboardButton("KONTAK ADMIN", callback_data='kontak_admin')],
-        [InlineKeyboardButton("Tambah Izin ID", callback_data='add_permission')]
-    ]
+    if update.message.chat_id == ADMIN_CHAT_ID:
+        keyboard = [
+            [InlineKeyboardButton("DASBOARD", callback_data='dashboard')],
+            [InlineKeyboardButton("ORDER", callback_data='order')],
+            [InlineKeyboardButton("ID CHAT", callback_data='id_chat')],
+            [InlineKeyboardButton("KONTAK ADMIN", callback_data='kontak_admin')],
+            [InlineKeyboardButton("Tambah Izin ID", callback_data='add_permission')]
+        ]
+    else:
+        keyboard = [
+            [InlineKeyboardButton("DASBOARD", callback_data='dashboard')],
+            [InlineKeyboardButton("ORDER", callback_data='order')],
+            [InlineKeyboardButton("ID CHAT", callback_data='id_chat')],
+            [InlineKeyboardButton("KONTAK ADMIN", callback_data='kontak_admin')]
+        ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('Silakan pilih opsi di bawah ini:', reply_markup=reply_markup)
 
