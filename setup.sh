@@ -22,6 +22,7 @@ echo -e "Masukkan Bot Token :"
 read -p "" token
 mkdir -p san/bot
 cd san/bot
+touch token_bot.txt
 echo "$token" > token_bot.txt
 cd
 echo -e "${yellow}UPDATE PACKAGE VPS${NC}"
